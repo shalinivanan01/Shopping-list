@@ -1,7 +1,20 @@
-{{page-title "FirstApp"}}
+{{page-title 'FirstApp'}}
 
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<h1>Shopping list</h1>
+<hr>
+<label for='userName'>Enter user name:</label>
+<input type='text' name='userName' id='userName' />
+<input type='submit' onclick={{action 'setUserName'}} />
+
+{{#if this.lastName}}
+  <h3>Welcome {{this.fullName}}</h3>
+{{else}}
+  <h3>Welcome {{this.firstName}}</h3>
+{{/if}}
+
+<hr />
+<ProductListing @category={{this.categories.[0]}} class="text-primary"/>
+<ProductListing @category={{this.categories.[1]}} class="text-secondary"/>
+<ProductListing @category={{this.categories.[2]}} class="text-success"/>
 
 {{outlet}}

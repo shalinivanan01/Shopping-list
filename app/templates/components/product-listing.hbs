@@ -1,0 +1,20 @@
+<h3>{{get this.category 'name'}}</h3>
+<label>Enter an item:
+  <input type='text' id={{this.category.name}} />
+</label>
+<input type='submit' value='Add' onclick={{action 'addItem'}} ...attributes/>
+<ul class={{this.category.name}}>
+  {{#each this.category.items as |product|}}
+    <div data-itemname={{product}}>
+      <li>{{product}}
+        <button
+          type='button'
+          onclick={{action 'deleteItem' product}}
+          class='btn btn-outline-dark btn-sm'>
+          Delete
+        </button>
+      </li>
+    <br />
+  </div>
+  {{/each}}
+</ul>
