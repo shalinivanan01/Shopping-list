@@ -1,9 +1,9 @@
 <h3>{{get this.category 'name'}}</h3>
 <label>Enter an item:
-  <input type='text' id={{this.category.name}} />
+  <Input type='text' @value={{this.itemValue}} />
 </label>
 <input type='submit' value='Add' onclick={{action 'addItem'}} ...attributes/>
-<ul class={{this.category.name}}>
+<ul>
   {{#each this.category.items as |product|}}
     <div data-itemname={{product}}>
       <li>{{product}}
