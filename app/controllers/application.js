@@ -8,7 +8,6 @@ export default Controller.extend({
   fullName: computed('firstName', 'lastName', function () {
     return `${this.firstName} ${this.lastName}`;
   }),
-  itemValue:null,
   categories: A([
     {
       name: 'Grocery',
