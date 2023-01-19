@@ -7,7 +7,6 @@ export default Component.extend({
       this.category.items.removeObject(item);
     },
     addItem() {
-      console.log(this);
       this.category.items.pushObject(this.itemValue);
     },
   },

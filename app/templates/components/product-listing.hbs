@@ -5,7 +5,7 @@
 <input type='submit' value='Add' onclick={{action 'addItem'}} ...attributes/>
 <ul>
   {{#each this.category.items as |product|}}
-    <div data-itemname={{product}}>
+    <div>
       <li>{{product}}
         <button
           type='button'
