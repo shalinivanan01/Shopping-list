@@ -1,13 +1,15 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import {action} from '@ember/object';
 
-export default Component.extend({
-  itemValue:null,
-  actions: {
-    deleteItem(item) {
-      this.category.items.removeObject(item);
-    },
-    addItem() {
-      this.category.items.pushObject(this.itemValue);
-    },
-  },
-});
+export default class productListing extends Component{
+  itemValue = null;
+
+  @action  
+  deleteItem(item) {
+    this.args.product.items.removeObject(item);
+  }
+  @action
+  addItem() {
+    this.args.product.items.pushObject(this.itemValue);
+  }
+}

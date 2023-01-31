@@ -1,15 +1,15 @@
-<h3>{{get this.category 'name'}}</h3>
+<h3>{{get @product 'name'}}</h3>
 <label>Enter an item:
   <Input type='text' @value={{this.itemValue}} />
 </label>
-<input type='submit' value='Add' onclick={{action 'addItem'}} ...attributes/>
+<input type='submit' value='Add' {{on 'click' this.addItem}} ...attributes/>
 <ul>
-  {{#each this.category.items as |product|}}
+  {{#each @product.items as |product|}}
     <div>
       <li>{{product}}
         <button
           type='button'
-          onclick={{action 'deleteItem' product}}
+          {{on 'click' (fn this.deleteItem product)}}
           class='btn btn-outline-dark btn-sm'>
           Delete
         </button>

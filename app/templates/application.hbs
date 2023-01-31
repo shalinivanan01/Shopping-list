@@ -1,10 +1,10 @@
 {{page-title 'FirstApp'}}
 
 <h1>Shopping list</h1>
-<hr>
+<hr />
 <label for='userName'>Enter user name:</label>
-<Input type="text" name="username" @value={{this.userName}} id='userName'/>
-<input type='submit' onclick={{action 'setUserName'}}/>
+<Input type='text' name='username' @value={{this.userName}} id='userName' />
+<input type='submit' onclick={{action 'setUserName'}} />
 
 {{#if this.lastName}}
   <h3>Welcome {{this.fullName}}</h3>
@@ -13,8 +13,13 @@
 {{/if}}
 
 <hr />
-<ProductListing @category={{this.categories.[0]}} class="text-primary"/>
-<ProductListing @category={{this.categories.[1]}} class="text-secondary"/>
-<ProductListing @category={{this.categories.[2]}} class="text-success"/>
+{{!-- <ProductListing @category={{this.categories.[0]}} class='text-primary' />
+<ProductListing @category={{this.categories.[1]}} class='text-secondary' />
+<ProductListing @category={{this.categories.[2]}} class='text-success' /> --}}
+
+{{#each this.categories as |category|}}
+<ProductListing @product={{category}} class='text-secondary' />
+
+{{/each}}
 
 {{outlet}}
